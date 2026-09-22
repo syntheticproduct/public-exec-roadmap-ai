@@ -1,6 +1,6 @@
 # exec-roadmap-ai
 
-Placeholder site for exec-roadmap.ai. Not started yet.
+Single-page marketing site for the Executive AI Roadmap service.
 
 Live at https://exec-roadmap.ai — served by GitHub Pages from the public mirror
 `syntheticproduct/public-exec-roadmap-ai`, so **site changes must be pushed with

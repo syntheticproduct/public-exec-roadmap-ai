@@ -1,7 +1,11 @@
 # exec-roadmap-ai — project notes
 
-Static placeholder site for **https://exec-roadmap.ai**. No build step, no
-framework: `index.html` is served verbatim.
+Single-page marketing site for **https://exec-roadmap.ai**, the Executive AI
+Roadmap service. No build step, no framework: `index.html` is served verbatim.
+
+The page is plain static HTML — no scripts, no JS dependencies. Its only external
+requests are Google Fonts (Newsreader, IBM Plex Sans, IBM Plex Mono). It supports
+light and dark via `prefers-color-scheme` and a `data-theme` override.
 
 ## Two remotes, one working copy — read this before pushing
 
@@ -24,9 +28,14 @@ requires a public repo on the free plan, which is why the mirror exists.
 
 ## The public repo is world-readable
 
-Anything committed here reaches a public repo. Keep credentials, client names,
-pricing, and draft positioning **out of this checkout entirely** — there is no
-private-only file, because both remotes receive identical content.
+Anything committed here reaches a public repo, and git history keeps it even
+after a later edit.
+
+Published site copy is public *by design* — the marketing text, the bio, and the
+price on the page are the point of the page. What must stay out is anything not
+meant for the site: credentials, client and prospect names, and unpublished drafts
+or pricing still being decided. There is no private-only file here, because both
+remotes receive identical content.
 
 ## Do not delete CNAME
 

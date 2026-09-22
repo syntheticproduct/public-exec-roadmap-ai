@@ -1,10 +1,680 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>exec-roadmap.ai</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="A personal AI 30/60/90-day roadmap for executives, built for your role, industry and level. A service of Applied Agents LLC.">
+<style>
+  :root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  html{scroll-padding-top:env(safe-area-inset-top,0px)}
+  body{margin:0;padding:0}
+  img{max-width:100%}
+  [hidden]:not([hidden=until-found i]){display:none!important}
+</style>
+<title>Executive AI Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#F4F6F3;
+    --surface:#FFFFFF;
+    --ink:#13171A;
+    --ink-2:#525A5E;
+    --ink-3:#7C8589;
+    --rule:#D6DBD6;
+    --rule-soft:#E4E8E3;
+    --accent:#15574C;
+    --accent-ink:#0E3E36;
+    --accent-wash:#E2EBE6;
+    --brass:#8A6D36;
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace;
+    --measure:34rem;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --paper:#0F1211;
+      --surface:#161A18;
+      --ink:#E8EBE6;
+      --ink-2:#A0A8A3;
+      --ink-3:#7E8782;
+      --rule:#2B322E;
+      --rule-soft:#232926;
+      --accent:#6EC0AB;
+      --accent-ink:#8FD3C1;
+      --accent-wash:#182C27;
+      --brass:#C3A369;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --paper:#0F1211;
+    --surface:#161A18;
+    --ink:#E8EBE6;
+    --ink-2:#A0A8A3;
+    --ink-3:#7E8782;
+    --rule:#2B322E;
+    --rule-soft:#232926;
+    --accent:#6EC0AB;
+    --accent-ink:#8FD3C1;
+    --accent-wash:#182C27;
+    --brass:#C3A369;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:1.125rem;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent-wash);color:var(--ink)}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    position:sticky;
+    top:env(safe-area-inset-top,0px);
+    z-index:20;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .masthead-inner{
+    max-width:60rem;
+    margin:0 auto;
+    padding:.7rem 20px;
+    display:flex;
+    align-items:baseline;
+    gap:.9rem;
+    flex-wrap:wrap;
+  }
+  .wordmark{
+    font-family:var(--mono);
+    font-size:.82rem;
+    letter-spacing:.04em;
+    font-weight:500;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .wordmark span{color:var(--accent)}
+  .masthead-note{
+    font-family:var(--sans);
+    font-size:.74rem;
+    color:var(--ink-3);
+    letter-spacing:.01em;
+  }
+  .masthead .btn{margin-left:auto}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:.82rem;
+    font-weight:500;
+    letter-spacing:.01em;
+    text-decoration:none;
+    padding:.5rem 1rem;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    background:transparent;
+    border-radius:1px;
+    transition:background .15s ease,color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--accent);color:var(--paper)}
+  .btn-lg{
+    font-size:.95rem;
+    padding:.85rem 1.6rem;
+    background:var(--accent);
+    color:var(--paper);
+  }
+  .btn-lg:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:var(--paper)}
+
+  /* ---------- page frame ---------- */
+  .page{
+    max-width:60rem;
+    margin:0 auto;
+    padding-inline:20px;
+    padding-block:0 0;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block:4.5rem 3rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:clamp(2.6rem,7vw,4.4rem);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    margin:0 0 1.1rem;
+    text-wrap:balance;
+  }
+  .hero .service-line{
+    font-family:var(--mono);
+    font-size:.82rem;
+    letter-spacing:.02em;
+    color:var(--ink-2);
+    margin:0;
+  }
+  .hero .service-line strong{color:var(--accent);font-weight:500}
+  .hero-rule{
+    width:3.5rem;
+    height:2px;
+    background:var(--accent);
+    margin:0 0 1.6rem;
+  }
+
+  /* ---------- section spine ---------- */
+  .body-col{
+    position:relative;
+    padding-left:0;
+  }
+  section.block{
+    display:grid;
+    grid-template-columns:8.5rem minmax(0,1fr);
+    gap:0 2.5rem;
+    padding-block:3.2rem;
+    border-bottom:1px solid var(--rule-soft);
+    align-items:start;
+  }
+  section.block:last-of-type{border-bottom:none}
+  .block h2{
+    grid-column:1;
+    font-family:var(--sans);
+    font-size:.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    line-height:1.45;
+    color:var(--ink-2);
+    margin:.45rem 0 0;
+    position:sticky;
+    top:calc(env(safe-area-inset-top,0px) + 4.2rem);
+    hyphens:none;
+  }
+  .block h2::before{
+    content:"";
+    display:block;
+    width:1.5rem;
+    height:1px;
+    background:var(--accent);
+    margin-bottom:.6rem;
+  }
+  .block-body{grid-column:2;max-width:var(--measure)}
+  .block-body > *:first-child{margin-top:0}
+  .block-body > *:last-child{margin-bottom:0}
+  .block-body p{margin:0 0 1.15rem}
+  .block-body em{font-style:italic}
+
+  .lede{font-size:1.28rem;line-height:1.55;color:var(--ink)}
+
+  /* ---------- lists ---------- */
+  ul.plain{
+    list-style:none;
+    padding:0;
+    margin:0 0 1.15rem;
+    display:flex;
+    flex-direction:column;
+    gap:.85rem;
+  }
+  ul.plain li{
+    position:relative;
+    padding-left:1.4rem;
+  }
+  ul.plain li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.72em;
+    width:.45rem;
+    height:1px;
+    background:var(--accent);
+  }
+  ul.plain li strong{
+    font-family:var(--sans);
+    font-size:.95rem;
+    font-weight:600;
+    letter-spacing:-.005em;
+  }
+
+  /* ---------- numbered process ---------- */
+  ol.steps{
+    list-style:none;
+    padding:0;
+    margin:0 0 1.6rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    counter-reset:step;
+  }
+  ol.steps li{
+    display:grid;
+    grid-template-columns:2.2rem minmax(0,1fr);
+    gap:0 .9rem;
+    counter-increment:step;
+  }
+  ol.steps li::before{
+    content:counter(step);
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--accent);
+    border-top:1px solid var(--accent);
+    padding-top:.45rem;
+    line-height:1;
+  }
+  ol.steps .step-title{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:.98rem;
+    display:block;
+    margin-bottom:.3rem;
+  }
+  ol.steps p{margin:0}
+
+  /* ---------- spec block (term-sheet feel) ---------- */
+  .spec{
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding:1.1rem 0;
+    display:flex;
+    flex-direction:column;
+    gap:.7rem;
+    margin:0;
+  }
+  .spec div{
+    display:flex;
+    gap:.9rem;
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .spec dt{
+    font-family:var(--sans);
+    font-size:.76rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:var(--ink-3);
+    min-width:11rem;
+  }
+  .spec dd{
+    margin:0;
+    font-family:var(--mono);
+    font-size:.92rem;
+    color:var(--ink);
+  }
+
+  /* ---------- price ---------- */
+  .price-figure{
+    font-family:var(--mono);
+    font-weight:500;
+    font-size:clamp(2.6rem,9vw,3.6rem);
+    letter-spacing:-.02em;
+    color:var(--accent);
+    line-height:1;
+    margin:.2rem 0 1.1rem;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- bio ---------- */
+  .bio-name{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .pledge{
+    border-left:2px solid var(--brass);
+    padding-left:1.1rem;
+    margin:1.4rem 0 0;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+  .pledge p{margin:0}
+
+  /* ---------- negative list ---------- */
+  ul.nots{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+  }
+  ul.nots li{
+    position:relative;
+    padding-left:1.4rem;
+    color:var(--ink-2);
+  }
+  ul.nots li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.65em;
+    width:.7rem;
+    height:.7rem;
+    border:1px solid var(--rule);
+    border-radius:50%;
+  }
+  ul.nots li::after{
+    content:"";
+    position:absolute;
+    left:.13rem;
+    top:1.02em;
+    width:.7rem;
+    height:1px;
+    background:var(--ink-3);
+    transform:rotate(-45deg);
+    transform-origin:left center;
+  }
+
+  /* ---------- faq ---------- */
+  .faq{
+    display:flex;
+    flex-direction:column;
+    gap:1.7rem;
+    margin:0;
+  }
+  .faq .q{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:1rem;
+    line-height:1.4;
+    margin:0 0 .45rem;
+    color:var(--ink);
+    text-wrap:balance;
+  }
+  .faq .a{margin:0;color:var(--ink-2)}
+
+  /* ---------- closing ---------- */
+  .closing{
+    padding-block:4rem 4.5rem;
+    border-top:1px solid var(--rule);
+  }
+  .closing h2{
+    font-family:var(--sans);
+    font-size:.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    color:var(--ink-2);
+    margin:0 0 1.2rem;
+  }
+  .closing .call{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:clamp(1.9rem,5vw,2.6rem);
+    line-height:1.15;
+    letter-spacing:-.015em;
+    margin:0 0 1.2rem;
+    max-width:22ch;
+  }
+  .closing p{max-width:var(--measure)}
+  .cta-row{
+    display:flex;
+    align-items:center;
+    gap:1.2rem;
+    flex-wrap:wrap;
+    margin-top:1.8rem;
+  }
+  .cta-alt{
+    font-family:var(--sans);
+    font-size:.88rem;
+    color:var(--ink-2);
+  }
+
+  footer{
+    border-top:1px solid var(--rule-soft);
+    padding-block:1.6rem 2.6rem;
+  }
+  footer p{
+    margin:0;
+    font-family:var(--mono);
+    font-size:.76rem;
+    letter-spacing:.02em;
+    color:var(--ink-3);
+    font-style:normal;
+  }
+
+  @media (max-width:760px){
+    body{font-size:1.06rem}
+    section.block{
+      grid-template-columns:minmax(0,1fr);
+      gap:1.1rem;
+      padding-block:2.6rem;
+    }
+    .block h2{position:static;grid-column:1;margin-top:0}
+    .block-body{grid-column:1}
+    .hero{padding-block:3rem 2.4rem}
+    .spec dt{min-width:0;width:100%}
+    ol.steps li{grid-template-columns:1.8rem minmax(0,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
 </head>
 <body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="#top">exec-roadmap<span>.ai</span></a>
+    <span class="masthead-note">a service of Applied Agents LLC</span>
+    <a class="btn" href="#next-step">15-minute call</a>
+  </div>
+</header>
+
+<main class="page" id="top">
+
+  <div class="hero">
+    <div class="hero-rule"></div>
+    <h1>Executive AI Roadmap</h1>
+    <p class="service-line"><strong>exec-roadmap.ai</strong> — a service of Applied Agents LLC</p>
+  </div>
+
+  <div class="body-col">
+
+    <section class="block">
+      <h2>What this is</h2>
+      <div class="block-body">
+        <p class="lede">Your personal AI 30/60/90-day roadmap. Built for you specifically — your industry, your role, your AI and technical level, your goals, your resources. Whether you are starting from zero or already using these tools daily, the roadmap tells you what to do in the next ninety days for maximum return on your time, effort, and money.</p>
+        <p>It is not a course, not a subscription, and not a tool you have to learn. It is a document, built for you, after a conversation.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Who this is for</h2>
+      <div class="block-body">
+        <p>Executives who need to get good at AI and do not have an obvious way to do it.</p>
+        <p>Specifically:</p>
+        <ul class="plain">
+          <li>You are senior enough that nobody is going to hand you a training plan</li>
+          <li>You have tried some of this already, or you have not, and either way you are not sure whether what you are doing is the right thing to be doing</li>
+          <li>You do not have time to sort through a thousand courses, newsletters, tools, and opinions to find the ten percent that matter for someone in your position</li>
+          <li>Your firm is probably too small to have an internal AI function you can lean on</li>
+        </ul>
+        <p>You do not need to be technical. You do not need to have a plan. You do not need to know what you want.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>The problem this solves</h2>
+      <div class="block-body">
+        <p>There is no shortage of AI material. There is a shortage of AI material that is right for <em>you</em> — your role, your industry, your level, your time budget.</p>
+        <p>So most executives do one of three things. They read everything and retain nothing. They take a general course built for a general audience and it does not connect to their actual work. Or they do nothing and hope it resolves itself.</p>
+        <p>All three waste the scarcest thing you have, which is your time. The roadmap exists to spend that time well.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What you get</h2>
+      <div class="block-body">
+        <p class="lede">A written 30/60/90-day roadmap, built for your context.</p>
+        <p>The roadmap is specific and actionable. Depending on your goals and where you are starting from, it will include things like:</p>
+        <ul class="plain">
+          <li><strong>Training to take</strong> — the specific book, course, or program that fits your level and your goal. Free or paid, whichever is the better use of your time and money. Not a reading list of forty items; the two or three that are right for you.</li>
+          <li><strong>Tools to try</strong> — which ones, in what order, for what purpose, and how to get started with each. Claude Desktop, Claude Code, and whatever else fits your work.</li>
+          <li><strong>What to do with your own week</strong> — where to apply this to work already on your desk, so the learning is not separate from the job.</li>
+          <li><strong>What to skip</strong> — the things that are getting attention right now and are not worth yours.</li>
+          <li><strong>How to tell if it is working</strong> — what should be different at day 30, day 60, day 90.</li>
+        </ul>
+        <p>Everything is sequenced. First things first, in the order that gets you the most for the least.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>How it works</h2>
+      <div class="block-body">
+        <ol class="steps">
+          <li>
+            <div>
+              <span class="step-title">The 360-degree context gathering.</span>
+              <p>A conversation where I build a complete picture: your goals, your role and what you actually do all day, your industry, your organization, your current AI and technical level, the tools you already have, your budget, and how many hours a week you can realistically give this. This is the part that makes the roadmap yours rather than generic.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="step-title">I build the roadmap.</span>
+              <p>Written, specific, sequenced.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="step-title">I deliver it and we walk through it.</span>
+              <p>You get the document, and a session to go through it, ask questions, and adjust anything that does not fit.</p>
+            </div>
+          </li>
+        </ol>
+        <dl class="spec">
+          <div><dt>Timeline</dt><dd>about two weeks from the first conversation to the delivered roadmap.</dd></div>
+          <div><dt>Your time commitment</dt><dd>roughly two hours total.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What it costs</h2>
+      <div class="block-body">
+        <p style="margin-bottom:0">A flat fee of</p>
+        <p class="price-figure">$2,500</p>
+        <p>One price, agreed before anything starts. No hourly billing, no surprises.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What happens after — optional</h2>
+      <div class="block-body">
+        <p>Some clients want the roadmap and nothing else. That is a complete engagement and most people stop there.</p>
+        <p>If you want to keep working together, you can hire me by the hour — a few hours a week, a month, or a quarter, however you want to structure it. That work is open-ended and shaped by what you need:</p>
+        <ul class="plain">
+          <li>Teaching and mentoring, one to one</li>
+          <li>Co-building something with you</li>
+          <li>Evaluating tools, vendors, and frameworks before you commit</li>
+          <li>Designing an MVP you or your team could build</li>
+          <li>Product and project management on an AI initiative</li>
+          <li>AI architecture review</li>
+          <li>Strategy, and future-of-work advisory</li>
+        </ul>
+        <p>No obligation, no minimum, and nothing is decided at the time you buy the roadmap.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Who I am</h2>
+      <div class="block-body">
+        <p><span class="bio-name">Camille Lambert.</span> Part executive advisor, part AI strategist, part coach, part teacher.</p>
+        <p>Seven years as a Vice President on Citi's Global Securitized Markets desk, where I built SPIRIT — a real-time pricing, risk, and P&amp;L platform running an approximately $85 billion agency-MBS book, under OCC oversight. Data and AI product work at Disney Streaming at petabyte scale. Interim executive roles at national nonprofits, including The Bail Project. I run Applied Agents LLC, and I lead Agentive Labs, a nonprofit that builds AI agents for other nonprofits. I volunteer with DataKind.</p>
+        <p>Two things that matter more than the resume:</p>
+        <div class="pledge">
+          <p>I have built and operated real systems that carried real money under real regulatory supervision. I am not describing this work from the outside.</p>
+          <p>And I sell nothing but my own work. No software, no platform, no reseller agreements, no referral fees from any tool I recommend. When I tell you to use something, that is the only reason I am telling you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What this is not</h2>
+      <div class="block-body">
+        <ul class="nots">
+          <li>Not a course or a curriculum</li>
+          <li>Not a subscription</li>
+          <li>Not software you have to learn</li>
+          <li>Not a technology strategy for your whole company — this is about you personally, though what you learn will shape what you decide for your team</li>
+          <li>Not a sales process for something bigger. The roadmap is the product.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Questions people ask before we talk</h2>
+      <div class="block-body">
+        <div class="faq">
+          <div>
+            <p class="q">How much of my time does this take?</p>
+            <p class="a">About two hours total: one context conversation, one delivery session. The roadmap itself is my work, not yours.</p>
+          </div>
+          <div>
+            <p class="q">I already use ChatGPT every day. Is this still for me?</p>
+            <p class="a">Yes, and the roadmap will look different. For someone already fluent, the question is not "how do I start" but "what is the next level, and what am I missing." That is what the context conversation establishes.</p>
+          </div>
+          <div>
+            <p class="q">I know almost nothing. Is that a problem?</p>
+            <p class="a">No. Starting from zero is common and the roadmap is built for where you actually are, not where you feel you should be.</p>
+          </div>
+          <div>
+            <p class="q">Is this confidential?</p>
+            <p class="a">Yes. Nothing about you, your firm, or our conversation goes anywhere. Part of the value here is having a place to ask beginner questions without an audience.</p>
+          </div>
+          <div>
+            <p class="q">Is this specific to my industry?</p>
+            <p class="a">The roadmap is built on your context, so yes. My deepest experience is in capital markets and fixed income, and financial services generally. If you are outside that, say so on the call and I will tell you honestly whether I am the right person.</p>
+          </div>
+          <div>
+            <p class="q">What does the roadmap actually look like?</p>
+            <p class="a">A written document, typically five to ten pages, organized by what to do in the first 30 days, the next 30, and the final 30. Specific recommendations with reasons attached, not general advice.</p>
+          </div>
+          <div>
+            <p class="q">Are you going to try to sell me something afterward?</p>
+            <p class="a">No. The hourly work exists if you want it. If you do not, the engagement is finished when the roadmap is delivered.</p>
+          </div>
+          <div>
+            <p class="q">What if it is not useful?</p>
+            <p class="a">Tell me on the delivery call and I will rework it. The roadmap is only worth something if you actually use it.</p>
+          </div>
+          <div>
+            <p class="q">Who else have you done this for?</p>
+            <p class="a">I have done this work informally with several executives and general managers. This is a newly productized service, so I do not yet have public case studies, and I would rather say that plainly than dress it up. The upside for early clients is my full attention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="closing" id="next-step">
+    <h2>Next step</h2>
+    <p class="call">A 15-minute call. No preparation, nothing to send in advance.</p>
+    <p>The point of the call is for you to decide whether this is worth your money and for me to tell you honestly whether it is. If it is not a fit, I will say so on the call.</p>
+    <div class="cta-row">
+      <a class="btn btn-lg" href="#next-step">Book a 15-minute call</a>
+      <span class="cta-alt">Or reply to the email this came in.</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>exec-roadmap.ai · a service of Applied Agents LLC · Los Angeles</p>
+  </footer>
+
+</main>
+
 </body>
 </html>
